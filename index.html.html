@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa Mental – Expectativas del Servicio Social</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:100%; height:100%; background:#0d1117; font-family:'Nunito',sans-serif; overflow:hidden; }
+
+  #canvas-wrap {
+    width:100vw; height:100vh;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  svg#mindmap {
+    width:100%; height:100%;
+    overflow:visible;
+  }
+
+  .connector {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .animate-in { animation: popIn 0.45s cubic-bezier(.34,1.56,.64,1) both; }
+  @keyframes popIn {
+    from { opacity:0; transform:scale(0.4); }
+    to   { opacity:1; transform:scale(1); }
+  }
+  .line-draw {
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation: drawLine 0.7s ease forwards;
+  }
+  @keyframes drawLine { to { stroke-dashoffset:0; } }
+
+  body {
+    background: radial-gradient(ellipse 80% 80% at 50% 50%, #111827 0%, #0a0e18 100%);
+  }
+</style>
+</head>
+<body>
+<div id="canvas-wrap">
+<svg id="mindmap" viewBox="0 0 1500 960" preserveAspectRatio="xMidYMid meet">
+<defs>
+  <radialGradient id="gCenter" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#1e3a6e"/>
+    <stop offset="100%" stop-color="#0f1d3a"/>
+  </radialGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="5" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="sh" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.6"/>
+  </filter>
+</defs>
+
+<!-- subtle background dots -->
+<g opacity="0.06">
+  <circle cx="750" cy="480" r="200" fill="none" stroke="#5e9ef5" stroke-width="1" stroke-dasharray="4 8"/>
+  <circle cx="750" cy="480" r="380" fill="none" stroke="#e8c26a" stroke-width="1" stroke-dasharray="3 12"/>
+</g>
+
+<!-- ═══════════════════════════
+     CONNECTOR LINES
+═══════════════════════════ -->
+
+<!-- A: top-left -->
+<path class="connector line-draw" stroke="#e8c26a" stroke-width="3" opacity="0.5"
+  d="M 750 480 C 680 420, 520 360, 400 230" style="animation-delay:0.05s"/>
+<line class="connector line-draw" stroke="#e8c26a" stroke-width="1.5" opacity="0.4" x1="400" y1="230" x2="215" y2="168" style="animation-delay:0.4s"/>
+<line class="connector line-draw" stroke="#e8c26a" stroke-width="1.5" opacity="0.4" x1="400" y1="230" x2="215" y2="210" style="animation-delay:0.45s"/>
+<line class="connector line-draw" stroke="#e8c26a" stroke-width="1.5" opacity="0.4" x1="400" y1="230" x2="215" y2="252" style="animation-delay:0.5s"/>
+<line class="connector line-draw" stroke="#e8c26a" stroke-width="1.5" opacity="0.4" x1="400" y1="230" x2="215" y2="294" style="animation-delay:0.55s"/>
+
+<!-- B: top -->
+<path class="connector line-draw" stroke="#5e9ef5" stroke-width="3" opacity="0.5"
+  d="M 750 480 C 750 400, 750 310, 750 190" style="animation-delay:0.1s"/>
+<line class="connector line-draw" stroke="#5e9ef5" stroke-width="1.5" opacity="0.4" x1="750" y1="190" x2="558" y2="115" style="animation-delay:0.45s"/>
+<line class="connector line-draw" stroke="#5e9ef5" stroke-width="1.5" opacity="0.4" x1="750" y1="190" x2="628" y2="92" style="animation-delay:0.5s"/>
+<line class="connector line-draw" stroke="#5e9ef5" stroke-width="1.5" opacity="0.4" x1="750" y1="190" x2="872" y2="92" style="animation-delay:0.55s"/>
+<line class="connector line-draw" stroke="#5e9ef5" stroke-width="1.5" opacity="0.4" x1="750" y1="190" x2="942" y2="115" style="animation-delay:0.6s"/>
+<line class="connector line-draw" stroke="#5e9ef5" stroke-width="1.5" opacity="0.4" x1="750" y1="190" x2="962" y2="150" style="animation-delay:0.65s"/>
+
+<!-- C: top-right -->
+<path class="connector line-draw" stroke="#2ec4b6" stroke-width="3" opacity="0.5"
+  d="M 750 480 C 820 420, 980 360, 1100 230" style="animation-delay:0.15s"/>
+<line class="connector line-draw" stroke="#2ec4b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="230" x2="1280" y2="148" style="animation-delay:0.5s"/>
+<line class="connector line-draw" stroke="#2ec4b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="230" x2="1285" y2="190" style="animation-delay:0.55s"/>
+<line class="connector line-draw" stroke="#2ec4b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="230" x2="1285" y2="232" style="animation-delay:0.6s"/>
+<line class="connector line-draw" stroke="#2ec4b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="230" x2="1280" y2="274" style="animation-delay:0.65s"/>
+<line class="connector line-draw" stroke="#2ec4b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="230" x2="1270" y2="316" style="animation-delay:0.7s"/>
+
+<!-- D: right -->
+<path class="connector line-draw" stroke="#e8506a" stroke-width="3" opacity="0.5"
+  d="M 750 480 C 880 480, 1010 480, 1120 480" style="animation-delay:0.2s"/>
+<line class="connector line-draw" stroke="#e8506a" stroke-width="1.5" opacity="0.4" x1="1230" y1="480" x2="1370" y2="390" style="animation-delay:0.55s"/>
+<line class="connector line-draw" stroke="#e8506a" stroke-width="1.5" opacity="0.4" x1="1230" y1="480" x2="1375" y2="432" style="animation-delay:0.6s"/>
+<line class="connector line-draw" stroke="#e8506a" stroke-width="1.5" opacity="0.4" x1="1230" y1="480" x2="1380" y2="475" style="animation-delay:0.65s"/>
+<line class="connector line-draw" stroke="#e8506a" stroke-width="1.5" opacity="0.4" x1="1230" y1="480" x2="1375" y2="518" style="animation-delay:0.7s"/>
+<line class="connector line-draw" stroke="#e8506a" stroke-width="1.5" opacity="0.4" x1="1230" y1="480" x2="1365" y2="560" style="animation-delay:0.75s"/>
+
+<!-- E: bottom-right -->
+<path class="connector line-draw" stroke="#9b59b6" stroke-width="3" opacity="0.5"
+  d="M 750 480 C 820 550, 980 620, 1100 730" style="animation-delay:0.25s"/>
+<line class="connector line-draw" stroke="#9b59b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="730" x2="1255" y2="655" style="animation-delay:0.6s"/>
+<line class="connector line-draw" stroke="#9b59b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="730" x2="1265" y2="700" style="animation-delay:0.65s"/>
+<line class="connector line-draw" stroke="#9b59b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="730" x2="1265" y2="748" style="animation-delay:0.7s"/>
+<line class="connector line-draw" stroke="#9b59b6" stroke-width="1.5" opacity="0.4" x1="1100" y1="730" x2="1255" y2="796" style="animation-delay:0.75s"/>
+
+<!-- F: bottom-left -->
+<path class="connector line-draw" stroke="#27ae60" stroke-width="3" opacity="0.5"
+  d="M 750 480 C 680 550, 520 620, 400 730" style="animation-delay:0.3s"/>
+<line class="connector line-draw" stroke="#27ae60" stroke-width="1.5" opacity="0.4" x1="400" y1="730" x2="240" y2="655" style="animation-delay:0.65s"/>
+<line class="connector line-draw" stroke="#27ae60" stroke-width="1.5" opacity="0.4" x1="400" y1="730" x2="235" y2="698" style="animation-delay:0.7s"/>
+<line class="connector line-draw" stroke="#27ae60" stroke-width="1.5" opacity="0.4" x1="400" y1="730" x2="235" y2="743" style="animation-delay:0.75s"/>
+<line class="connector line-draw" stroke="#27ae60" stroke-width="1.5" opacity="0.4" x1="400" y1="730" x2="240" y2="788" style="animation-delay:0.8s"/>
+
+<!-- ═══════════════════════════
+     CENTER NODE
+═══════════════════════════ -->
+<g class="animate-in" style="animation-delay:0s; transform-origin:750px 480px" filter="url(#glow)">
+  <rect x="620" y="408" width="260" height="144" rx="26" fill="url(#gCenter)" stroke="#e8c26a" stroke-width="2.5"/>
+  <text font-family="Nunito,sans-serif" font-size="9" font-weight="700" fill="#e8c26a" text-anchor="middle" letter-spacing="2.5" x="750" y="428">✦ IDEA CENTRAL ✦</text>
+  <text font-family="Nunito,sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" x="750" y="454">Expectativas del</text>
+  <text font-family="Nunito,sans-serif" font-size="15" font-weight="800" fill="#e8c26a" text-anchor="middle" x="750" y="476">Servicio Social en Línea</text>
+  <text font-family="Nunito,sans-serif" font-size="14" font-weight="700" fill="#ccd8f0" text-anchor="middle" x="750" y="498">como Líder Comunitario</text>
+  <text font-family="Nunito,sans-serif" font-size="8.5" font-weight="600" fill="#6677aa" text-anchor="middle" x="750" y="518">Hector Delgado Almazan · UVM · 840155120</text>
+  <text font-family="Nunito,sans-serif" font-size="8.5" font-weight="600" fill="#6677aa" text-anchor="middle" x="750" y="534">Lic. en Administración · 24 feb 2026</text>
+</g>
+
+<!-- ═══════════════════════════
+     BRANCH A – top-left – GOLD
+═══════════════════════════ -->
+<g class="animate-in" style="animation-delay:0.18s; transform-origin:400px 230px" filter="url(#sh)">
+  <rect x="305" y="198" width="190" height="64" rx="16" fill="#8c6412"/>
+  <text font-family="Nunito,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="1.8" x="400" y="214">RAMA A</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="400" y="234">¿Qué es</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="400" y="252">"Expectativa"?</text>
+</g>
+<!-- A leaves -->
+<g class="animate-in" style="animation-delay:0.48s; transform-origin:138px 168px">
+  <rect x="55" y="153" width="166" height="30" rx="10" fill="#1e1608" stroke="#e8c26a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#e0d0a0" text-anchor="middle" x="138" y="173">📖 RAE: Esperanza de lograr algo</text>
+</g>
+<g class="animate-in" style="animation-delay:0.53s; transform-origin:138px 210px">
+  <rect x="55" y="195" width="166" height="30" rx="10" fill="#1e1608" stroke="#e8c26a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#e0d0a0" text-anchor="middle" x="138" y="215">🧠 APA: Anticipación emocional</text>
+</g>
+<g class="animate-in" style="animation-delay:0.58s; transform-origin:138px 252px">
+  <rect x="55" y="237" width="166" height="30" rx="10" fill="#1e1608" stroke="#e8c26a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#e0d0a0" text-anchor="middle" x="138" y="257">📚 Cambridge: Creencia anticipada</text>
+</g>
+<g class="animate-in" style="animation-delay:0.63s; transform-origin:138px 294px">
+  <rect x="55" y="279" width="166" height="30" rx="10" fill="#1e1608" stroke="#e8c26a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#e0d0a0" text-anchor="middle" x="138" y="294">💡 Mi def: Propósito consciente</text>
+</g>
+
+<!-- ═══════════════════════════
+     BRANCH B – top – BLUE
+═══════════════════════════ -->
+<g class="animate-in" style="animation-delay:0.22s; transform-origin:750px 190px" filter="url(#sh)">
+  <rect x="655" y="158" width="190" height="64" rx="16" fill="#12306e"/>
+  <text font-family="Nunito,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="1.8" x="750" y="174">RAMA B</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="750" y="194">Ventajas de la</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="750" y="212">Modalidad en Línea</text>
+</g>
+<!-- B leaves -->
+<g class="animate-in" style="animation-delay:0.52s; transform-origin:480px 115px">
+  <rect x="397" y="100" width="166" height="30" rx="10" fill="#081528" stroke="#5e9ef5" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#b0ccf8" text-anchor="middle" x="480" y="120">⏰ Flexibilidad de tiempos</text>
+</g>
+<g class="animate-in" style="animation-delay:0.57s; transform-origin:548px 92px">
+  <rect x="465" y="77" width="166" height="30" rx="10" fill="#081528" stroke="#5e9ef5" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#b0ccf8" text-anchor="middle" x="548" y="97">💰 Ahorro en traslados</text>
+</g>
+<g class="animate-in" style="animation-delay:0.62s; transform-origin:955px 92px">
+  <rect x="872" y="77" width="166" height="30" rx="10" fill="#081528" stroke="#5e9ef5" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#b0ccf8" text-anchor="middle" x="955" y="97">🛠️ Herramientas digitales</text>
+</g>
+<g class="animate-in" style="animation-delay:0.67s; transform-origin:1025px 115px">
+  <rect x="942" y="100" width="166" height="30" rx="10" fill="#081528" stroke="#5e9ef5" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#b0ccf8" text-anchor="middle" x="1025" y="120">🌐 Colaboración diversa</text>
+</g>
+<g class="animate-in" style="animation-delay:0.72s; transform-origin:1045px 150px">
+  <rect x="962" y="135" width="166" height="30" rx="10" fill="#081528" stroke="#5e9ef5" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#b0ccf8" text-anchor="middle" x="1045" y="155">📁 Evidencia digital de avances</text>
+</g>
+
+<!-- ═══════════════════════════
+     BRANCH C – top-right – TEAL
+═══════════════════════════ -->
+<g class="animate-in" style="animation-delay:0.26s; transform-origin:1100px 230px" filter="url(#sh)">
+  <rect x="1005" y="198" width="190" height="64" rx="16" fill="#083a35"/>
+  <text font-family="Nunito,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="1.8" x="1100" y="214">RAMA C</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="1100" y="234">Mis Expectativas</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="1100" y="252">del Servicio Social</text>
+</g>
+<!-- C leaves -->
+<g class="animate-in" style="animation-delay:0.56s; transform-origin:1363px 148px">
+  <rect x="1280" y="133" width="166" height="30" rx="10" fill="#051e1c" stroke="#2ec4b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#96e8e0" text-anchor="middle" x="1363" y="153">🏆 Liderazgo y coordinación</text>
+</g>
+<g class="animate-in" style="animation-delay:0.61s; transform-origin:1368px 190px">
+  <rect x="1285" y="175" width="166" height="30" rx="10" fill="#051e1c" stroke="#2ec4b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#96e8e0" text-anchor="middle" x="1368" y="195">💬 Comunicación empática</text>
+</g>
+<g class="animate-in" style="animation-delay:0.66s; transform-origin:1368px 232px">
+  <rect x="1285" y="217" width="166" height="30" rx="10" fill="#051e1c" stroke="#2ec4b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#96e8e0" text-anchor="middle" x="1368" y="237">⚙️ Disciplina y autogestión</text>
+</g>
+<g class="animate-in" style="animation-delay:0.71s; transform-origin:1363px 274px">
+  <rect x="1280" y="259" width="166" height="30" rx="10" fill="#051e1c" stroke="#2ec4b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#96e8e0" text-anchor="middle" x="1363" y="279">❤️ Impacto social real</text>
+</g>
+<g class="animate-in" style="animation-delay:0.76s; transform-origin:1353px 316px">
+  <rect x="1270" y="301" width="166" height="30" rx="10" fill="#051e1c" stroke="#2ec4b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#96e8e0" text-anchor="middle" x="1353" y="321">📊 Trabajo por metas</text>
+</g>
+
+<!-- ═══════════════════════════
+     BRANCH D – right – ROSE
+═══════════════════════════ -->
+<g class="animate-in" style="animation-delay:0.3s; transform-origin:1230px 480px" filter="url(#sh)">
+  <rect x="1120" y="448" width="220" height="64" rx="16" fill="#4a0d1a"/>
+  <text font-family="Nunito,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="1.8" x="1230" y="464">RAMA D</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="1230" y="484">Habilidades</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="1230" y="502">Personales y Sociales</text>
+</g>
+<!-- D leaves -->
+<g class="animate-in" style="animation-delay:0.62s; transform-origin:1453px 390px">
+  <rect x="1370" y="375" width="166" height="30" rx="10" fill="#200610" stroke="#e8506a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#f5a0b0" text-anchor="middle" x="1453" y="395">🚀 Proactividad</text>
+</g>
+<g class="animate-in" style="animation-delay:0.67s; transform-origin:1458px 432px">
+  <rect x="1375" y="417" width="166" height="30" rx="10" fill="#200610" stroke="#e8506a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#f5a0b0" text-anchor="middle" x="1458" y="437">💛 Empatía</text>
+</g>
+<g class="animate-in" style="animation-delay:0.72s; transform-origin:1463px 475px">
+  <rect x="1380" y="460" width="166" height="30" rx="10" fill="#200610" stroke="#e8506a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#f5a0b0" text-anchor="middle" x="1463" y="480">🤝 Compromiso y ética</text>
+</g>
+<g class="animate-in" style="animation-delay:0.77s; transform-origin:1458px 518px">
+  <rect x="1375" y="503" width="166" height="30" rx="10" fill="#200610" stroke="#e8506a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#f5a0b0" text-anchor="middle" x="1458" y="523">🔍 Autocrítica continua</text>
+</g>
+<g class="animate-in" style="animation-delay:0.82s; transform-origin:1448px 560px">
+  <rect x="1365" y="545" width="166" height="30" rx="10" fill="#200610" stroke="#e8506a" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#f5a0b0" text-anchor="middle" x="1448" y="565">⚖️ Tolerancia y responsabilidad</text>
+</g>
+
+<!-- ═══════════════════════════
+     BRANCH E – bottom-right – PURPLE
+═══════════════════════════ -->
+<g class="animate-in" style="animation-delay:0.34s; transform-origin:1100px 730px" filter="url(#sh)">
+  <rect x="1005" y="698" width="190" height="64" rx="16" fill="#220d35"/>
+  <text font-family="Nunito,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="1.8" x="1100" y="714">RAMA E</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="1100" y="734">Beneficios para</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="1100" y="752">mi Formación</text>
+</g>
+<!-- E leaves -->
+<g class="animate-in" style="animation-delay:0.65s; transform-origin:1338px 655px">
+  <rect x="1255" y="640" width="166" height="30" rx="10" fill="#130820" stroke="#9b59b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#c8a0e8" text-anchor="middle" x="1338" y="660">📐 Aplicar conocimientos reales</text>
+</g>
+<g class="animate-in" style="animation-delay:0.7s; transform-origin:1348px 700px">
+  <rect x="1265" y="685" width="166" height="30" rx="10" fill="#130820" stroke="#9b59b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#c8a0e8" text-anchor="middle" x="1348" y="705">📋 Fortalecer perfil de egreso</text>
+</g>
+<g class="animate-in" style="animation-delay:0.75s; transform-origin:1348px 748px">
+  <rect x="1265" y="733" width="166" height="30" rx="10" fill="#130820" stroke="#9b59b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#c8a0e8" text-anchor="middle" x="1348" y="753">📄 Enriquecer CV y claridad</text>
+</g>
+<g class="animate-in" style="animation-delay:0.8s; transform-origin:1338px 796px">
+  <rect x="1255" y="781" width="166" height="30" rx="10" fill="#130820" stroke="#9b59b6" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#c8a0e8" text-anchor="middle" x="1338" y="801">🌱 Aprendizaje significativo</text>
+</g>
+
+<!-- ═══════════════════════════
+     BRANCH F – bottom-left – GREEN
+═══════════════════════════ -->
+<g class="animate-in" style="animation-delay:0.38s; transform-origin:400px 730px" filter="url(#sh)">
+  <rect x="305" y="698" width="190" height="64" rx="16" fill="#082215"/>
+  <text font-family="Nunito,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="1.8" x="400" y="714">RAMA F</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="400" y="734">Evidencias e</text>
+  <text font-family="Nunito,sans-serif" font-size="13" font-weight="800" fill="#fff" text-anchor="middle" x="400" y="752">Indicadores de Logro</text>
+</g>
+<!-- F leaves -->
+<g class="animate-in" style="animation-delay:0.72s; transform-origin:157px 655px">
+  <rect x="74" y="640" width="166" height="30" rx="10" fill="#050f08" stroke="#27ae60" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#90d8a8" text-anchor="middle" x="157" y="660">📒 Bitácora semanal</text>
+</g>
+<g class="animate-in" style="animation-delay:0.77s; transform-origin:152px 698px">
+  <rect x="69" y="683" width="166" height="30" rx="10" fill="#050f08" stroke="#27ae60" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#90d8a8" text-anchor="middle" x="152" y="703">📸 Capturas de reuniones</text>
+</g>
+<g class="animate-in" style="animation-delay:0.82s; transform-origin:152px 743px">
+  <rect x="69" y="728" width="166" height="30" rx="10" fill="#050f08" stroke="#27ae60" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#90d8a8" text-anchor="middle" x="152" y="748">📦 Informes y entregables</text>
+</g>
+<g class="animate-in" style="animation-delay:0.87s; transform-origin:157px 788px">
+  <rect x="74" y="773" width="166" height="30" rx="10" fill="#050f08" stroke="#27ae60" stroke-width="1.2"/>
+  <text font-family="Nunito,sans-serif" font-size="10" font-weight="600" fill="#90d8a8" text-anchor="middle" x="157" y="793">📊 Resultados + Reflexión final</text>
+</g>
+
+</svg>
+</div>
+</body>
+</html>
